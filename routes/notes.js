@@ -7,13 +7,12 @@ const uri = "mongodb+srv://metamountain_db_user:password@cluster0.sgeohtj.mongod
 const client = new MongoClient(uri);
 
 router.get('/', async (req, res) => {
-const database = client.db('notes');
-const notes = database.collection('notes');
+	const database = client.db('notes');
+	const notes = database.collection('notes');
 
-const query = { id: 2 };
-const note = await notes.findOne(query);
+	const note = await notes.findOne({});			
 
-res.json(note);
-})
+	res.json(note);
+});
 
 module.exports = router;
